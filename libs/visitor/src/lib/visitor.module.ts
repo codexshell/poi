@@ -6,8 +6,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { PointsModule } from '@poi/points';
 
 import { VisitorComponent } from './visitor/visitor.component';
+import { PointsListComponent } from './points-list/points-list.component';
 
 @NgModule({
   imports: [
@@ -23,7 +25,8 @@ import { VisitorComponent } from './visitor/visitor.component';
         component: VisitorComponent,
       },
     ]),
+    PointsModule,
   ],
-  declarations: [VisitorComponent],
+  declarations: [VisitorComponent, PointsListComponent],
 })
 export class VisitorModule {}

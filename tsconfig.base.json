@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@poi/admin": ["libs/admin/src/index.ts"],
+      "@poi/points": ["libs/points/src/index.ts"],
       "@poi/visitor": ["libs/visitor/src/index.ts"]
     }
   },

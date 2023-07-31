@@ -1,0 +1,8 @@
+<google-map
+  height="100%"
+  width="auto"
+  *ngIf="points$ | async as points"
+  [center]="points"
+>
+ <map-marker [position]="points"></map-marker>
+</google-map>

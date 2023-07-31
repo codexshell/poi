@@ -37,6 +37,10 @@ const reducer = createReducer(
   on(PointsActions.loadPointsFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(PointsActions.selectPoint, (state, { pointId }) => ({
+    ...state,
+    selectedId: pointId,
   }))
 );
 

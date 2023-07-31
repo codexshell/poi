@@ -11,6 +11,7 @@ import { PointsModule } from '@poi/points';
 
 import { PointsListComponent } from './points-list/points-list.component';
 import { VisitorComponent } from './visitor/visitor.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,6 @@ import { VisitorComponent } from './visitor/visitor.component';
     PointsModule,
     GoogleMapsModule,
   ],
-  declarations: [VisitorComponent, PointsListComponent],
+  declarations: [VisitorComponent, PointsListComponent, MapComponent],
 })
 export class VisitorModule {}

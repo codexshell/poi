@@ -12,3 +12,8 @@ export const loadPointsFailure = createAction(
   '[Points/API] Load Points Failure',
   props<{ error: any }>()
 );
+
+export const selectPoint = createAction(
+  '[Points/API] Select Point',
+  props<{ pointId: string | number }>()
+);

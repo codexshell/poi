@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { PointsActions, PointsSelectors } from '@poi/points';
+import { PointsActions, PointsSelectors, PointsEntity } from '@poi/points';
 
 @Component({
   selector: 'poi-points-list',
@@ -14,5 +14,9 @@ export class PointsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(PointsActions.initPoints());
+  }
+
+  selectPoint(pointId: string | number) {
+    this.store.dispatch(PointsActions.selectPoint({ pointId }));
   }
 }

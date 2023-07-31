@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -8,8 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { PointsModule } from '@poi/points';
 
-import { VisitorComponent } from './visitor/visitor.component';
 import { PointsListComponent } from './points-list/points-list.component';
+import { VisitorComponent } from './visitor/visitor.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { PointsListComponent } from './points-list/points-list.component';
       },
     ]),
     PointsModule,
+    GoogleMapsModule,
   ],
   declarations: [VisitorComponent, PointsListComponent],
 })

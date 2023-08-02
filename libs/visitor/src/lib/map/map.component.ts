@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 
-import { PointsSelectors } from '@poi/points';
+import { PointsActions, PointsEntity, PointsSelectors } from '@poi/points';
 
 @Component({
   selector: 'poi-map',
@@ -15,7 +15,8 @@ export class MapComponent {
 
   constructor(private store: Store) {}
 
-  showInfo(marker: MapMarker) {
+  showInfo(marker: MapMarker, point: PointsEntity) {
     this.info?.open(marker);
+    this.store.dispatch(PointsActions.visitPoint({ point }));
   }
 }

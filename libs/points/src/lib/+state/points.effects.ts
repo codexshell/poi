@@ -1,14 +1,16 @@
 import { Injectable, inject } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { switchMap, catchError, of } from 'rxjs';
+import { switchMap, catchError, of, tap } from 'rxjs';
 
 import { PointsService } from '../points.service';
 import * as PointsActions from './points.actions';
 import * as PointsFeature from './points.reducer';
+import { LocalStorageService } from '../localStorage.service';
 
 @Injectable()
 export class PointsEffects {
   private actions$ = inject(Actions);
+  private pointsService = inject(PointsService);
 
   init$ = createEffect(() =>
     this.actions$.pipe(
@@ -22,5 +24,19 @@ export class PointsEffects {
     )
   );
 
-  private pointsService = inject(PointsService);
+  visit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PointsActions.visitPoint),
+      switchMap(({ point }) => {
+        this.localStorageService.save(point);
+        return of(PointsActions.visitPointSuccess());
+      }),
+      catchError((error) => {
+        console.log('Error', error);
+        return of(PointsActions.visitPointFailure({ error }));
+      })
+    )
+  );
+
+  constructor(private localStorageService: LocalStorageService) {}
 }

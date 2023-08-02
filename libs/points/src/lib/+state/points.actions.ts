@@ -17,3 +17,17 @@ export const selectPoint = createAction(
   '[Points/API] Select Point',
   props<{ pointId: string | number }>()
 );
+
+export const visitPoint = createAction(
+  '[Points/API] Visit Point',
+  props<{ point: PointsEntity }>()
+);
+
+export const visitPointSuccess = createAction(
+  '[Points/API] Visit Point Success'
+);
+
+export const visitPointFailure = createAction(
+  '[Points/API] Visit Point Failure',
+  props<{ error: any }>()
+);

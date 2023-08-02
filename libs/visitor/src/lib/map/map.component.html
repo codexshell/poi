@@ -4,7 +4,11 @@
   *ngIf="point$ | async as point"
   [center]="point"
 >
-  <map-marker #marker="mapMarker" [position]="point" (mapClick)="showInfo(marker)"></map-marker>
+  <map-marker
+    #marker="mapMarker"
+    [position]="point"
+    (mapClick)="showInfo(marker, point)"
+  ></map-marker>
   <map-info-window>
     <mat-card>
       <mat-card-header>

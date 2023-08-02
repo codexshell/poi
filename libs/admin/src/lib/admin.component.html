@@ -1,1 +1,17 @@
-<p>admin works!</p>
+<p style="text-align: center; font-size: 2rem; margin-top: 1rem">
+  Visit statistics
+</p>
+<div
+  style="max-width: 500px; margin-inline: auto"
+  class="chart"
+  *ngIf="dataSets.length"
+>
+  <canvas
+    height="100"
+    baseChart
+    [datasets]="dataSets"
+    [labels]="labels"
+    type="pie"
+  >
+  </canvas>
+</div>

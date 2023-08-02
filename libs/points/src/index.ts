@@ -6,5 +6,7 @@ import * as PointsSelectors from './lib/+state/points.selectors';
 
 export * from './lib/+state/points.models';
 
+export * from './lib/storage.service';
+
 export { PointsActions, PointsFeature, PointsSelectors };
 export * from './lib/points.module';

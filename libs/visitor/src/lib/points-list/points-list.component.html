@@ -1,5 +1,5 @@
 <mat-action-list *ngFor="let point of points$ | async">
-  <button (click)="selectPoint(point.id)" mat-list-item>
+  <button (click)="selectPoint(point)" mat-list-item>
     {{ point.name }}
   </button>
 </mat-action-list>

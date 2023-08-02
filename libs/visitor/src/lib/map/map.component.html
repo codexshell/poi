@@ -1,8 +1,19 @@
 <google-map
   height="100%"
   width="auto"
-  *ngIf="points$ | async as points"
-  [center]="points"
+  *ngIf="point$ | async as point"
+  [center]="point"
 >
- <map-marker [position]="points"></map-marker>
+  <map-marker #marker="mapMarker" [position]="point" (mapClick)="showInfo(marker)"></map-marker>
+  <map-info-window>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ point.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="point.imgUrl" alt="{{ point.name }}" />
+      <mat-card-content>
+        <p>{{ point.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </map-info-window>
 </google-map>

@@ -8,10 +8,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { PointsModule } from '@poi/points';
+import { MatCardModule } from '@angular/material/card';
 
+import { MapComponent } from './map/map.component';
 import { PointsListComponent } from './points-list/points-list.component';
 import { VisitorComponent } from './visitor/visitor.component';
-import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { MapComponent } from './map/map.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     RouterModule.forChild([
       {
         path: '',

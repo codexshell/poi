@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 
 import { PointsSelectors } from '@poi/points';
 
@@ -9,7 +10,12 @@ import { PointsSelectors } from '@poi/points';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent {
-  points$ = this.store.select(PointsSelectors.selectEntity);
+  point$ = this.store.select(PointsSelectors.selectEntity);
+  @ViewChild(MapInfoWindow) info: MapInfoWindow | undefined;
 
   constructor(private store: Store) {}
+
+  showInfo(marker: MapMarker) {
+    this.info?.open(marker);
+  }
 }

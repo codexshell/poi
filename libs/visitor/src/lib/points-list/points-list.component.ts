@@ -16,7 +16,7 @@ export class PointsListComponent implements OnInit {
     this.store.dispatch(PointsActions.initPoints());
   }
 
-  selectPoint(pointId: string | number) {
-    this.store.dispatch(PointsActions.selectPoint({ pointId }));
+  selectPoint(point: PointsEntity) {
+    this.store.dispatch(PointsActions.selectPoint({ pointId: point.id }));
   }
 }
